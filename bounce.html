@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Greensock Animation Sandbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html, body {
+        background: #5490B5;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: Helvetica, Helvetica Neue, Arial;
+        font-size: 100%;
+      }
+
+      .rotated-holder {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        margin: 1% 1%;
+      }
+
+      .rotated-circle {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100px;
+        top: 0;
+        left: 0;
+        transform: scaleY(1.9) scaleX(1.9) rotateX(-45deg) rotateY(-45deg) rotateZ(-45deg);
+      }
+
+      .rotated-circle.red {
+        background: red;
+        z-index: 0;
+      }
+
+      .rotated-circle.orange {
+        background: orange;
+        z-index: 1;
+        left: 1rem;
+      }
+
+      .rotated-circle.yellow {
+        background: yellow;
+        z-index: 2;
+        left: 2rem;
+      }
+
+      .circle {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100px;
+        background: #EEEEEE;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div class="rotated-holder">
+        <div class="rotated-circle red"></div>
+        <div class="rotated-circle orange"></div>
+        <div class="rotated-circle yellow"></div>
+      </div>
+      <div class="circle"></div>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      var circle = document.getElementsByClassName('circle');
+
+      TweenMax.from(circle, 1, {top: "1%", scaleY: 1.9, rotation: -50, ease: Bounce.easeOut, repeat: -1, yoyo: true, repeatDelay: 0.5});
+      //TweenMax.to(circle, 1, {top: "0%", scaleY: 1.9, rotation: -50, ease: Bounce.easeOut});
+    </script>
+  </body>
+</html>
